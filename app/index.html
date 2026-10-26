@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Equipment Readiness Board</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", sans-serif;
+        color: #111827;
+        background: #f6f8fa;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      header {
+        background: #0e1117;
+        color: #ffffff;
+        padding: 2rem clamp(1.25rem, 5vw, 4rem);
+      }
+
+      main {
+        max-width: 70rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 4rem;
+      }
+
+      .eyebrow {
+        color: #59d6cf;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0 2rem;
+      }
+
+      .card {
+        background: #ffffff;
+        border: 1px solid #d0d7de;
+        border-radius: 0.75rem;
+        padding: 1rem;
+      }
+
+      .card strong {
+        display: block;
+        font-size: 2rem;
+        margin-top: 0.25rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #ffffff;
+        border: 1px solid #d0d7de;
+      }
+
+      th,
+      td {
+        padding: 0.8rem;
+        text-align: left;
+        border-bottom: 1px solid #d8dee4;
+      }
+
+      th {
+        background: #ddf4ff;
+      }
+
+      .error {
+        color: #cf222e;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="eyebrow">Synthetic workshop application</div>
+      <h1>Equipment Readiness Board</h1>
+      <p>Review current readiness and upcoming maintenance dates.</p>
+    </header>
+    <main>
+      <section>
+        <h2>Readiness summary</h2>
+        <div id="summary" class="summary" aria-live="polite"></div>
+      </section>
+      <section>
+        <h2>Equipment</h2>
+        <p id="error" class="error" hidden></p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Equipment</th>
+              <th scope="col">Location</th>
+              <th scope="col">Status</th>
+              <th scope="col">Next maintenance</th>
+            </tr>
+          </thead>
+          <tbody id="equipment-rows"></tbody>
+        </table>
+      </section>
+    </main>
+    <script src="../src/equipment.js"></script>
+    <script>
+      const summaryContainer = document.querySelector("#summary");
+      const rowsContainer = document.querySelector("#equipment-rows");
+      const errorContainer = document.querySelector("#error");
+
+      function addTextCell(row, value) {
+        const cell = document.createElement("td");
+        cell.textContent = value;
+        row.appendChild(cell);
+      }
+
+      function renderSummary(summary) {
+        summaryContainer.replaceChildren();
+        for (const [label, value] of Object.entries(summary)) {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          const heading = document.createElement("span");
+          heading.textContent = label;
+
+          const count = document.createElement("strong");
+          count.textContent = String(value);
+
+          card.append(heading, count);
+          summaryContainer.appendChild(card);
+        }
+      }
+
+      function renderRows(items) {
+        rowsContainer.replaceChildren();
+        for (const item of items) {
+          const row = document.createElement("tr");
+          addTextCell(row, item.name);
+          addTextCell(row, item.location);
+          addTextCell(row, item.status);
+          addTextCell(row, item.nextMaintenance);
+          rowsContainer.appendChild(row);
+        }
+      }
+
+      fetch("../data/equipment.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Request failed with status ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((items) => {
+          const records = EquipmentReadiness.validateEquipment(items);
+          renderSummary(EquipmentReadiness.summarizeEquipment(records));
+          renderRows(records);
+        })
+        .catch(() => {
+          errorContainer.hidden = false;
+          errorContainer.textContent = "Equipment data could not be loaded.";
+        });
+    </script>
+  </body>
+</html>

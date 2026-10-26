@@ -1,0 +1,44 @@
+[
+  {
+    "id": "EQ-101",
+    "name": "Cold Storage Unit A",
+    "location": "Building 1",
+    "status": "Ready",
+    "nextMaintenance": "2026-11-04"
+  },
+  {
+    "id": "EQ-102",
+    "name": "Sample Scanner 2",
+    "location": "Building 1",
+    "status": "Maintenance",
+    "nextMaintenance": "2026-10-29"
+  },
+  {
+    "id": "EQ-103",
+    "name": "Centrifuge 7",
+    "location": "Building 2",
+    "status": "Ready",
+    "nextMaintenance": "2026-12-15"
+  },
+  {
+    "id": "EQ-104",
+    "name": "Imaging Station 3",
+    "location": "Building 2",
+    "status": "Offline",
+    "nextMaintenance": "2026-10-28"
+  },
+  {
+    "id": "EQ-105",
+    "name": "Environmental Monitor",
+    "location": "Building 3",
+    "status": "Ready",
+    "nextMaintenance": "2026-11-21"
+  },
+  {
+    "id": "EQ-106",
+    "name": "Freezer Bank B",
+    "location": "Building 3",
+    "status": "Maintenance",
+    "nextMaintenance": "2026-11-10"
+  }
+]

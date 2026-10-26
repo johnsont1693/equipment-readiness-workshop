@@ -1,0 +1,9 @@
+{
+  "name": "equipment-readiness-board",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Synthetic workshop application for GitHub and Copilot foundations.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
