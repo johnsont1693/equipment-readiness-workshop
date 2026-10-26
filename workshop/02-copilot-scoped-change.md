@@ -4,6 +4,8 @@
 
 Use an approved GitHub Copilot experience to plan and implement the maintenance-due change without bypassing human review.
 
+Work in a facilitator-provided writable copy in an approved organization, or a fork only where organizational policy permits. Treat the public repository as a read-only reference.
+
 ## Prompt pattern
 
 Attach or reference:

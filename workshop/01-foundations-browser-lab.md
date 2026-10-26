@@ -4,6 +4,8 @@
 
 Move one focused documentation change through branch, commit, pull request, and review.
 
+Use a facilitator-provided writable copy in an approved organization, or a fork only where organizational policy permits. Do not create workshop branches in the public reference repository.
+
 ## Change
 
 Add this sentence under the workshop change request in `docs/requirements.md`:

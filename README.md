@@ -2,6 +2,12 @@
 
 This is a synthetic teaching repository for GitHub and AI-assisted development workshops.
 
+## Workshop use
+
+Treat this public repository as a read-only reference. For branch, pull-request, and Copilot exercises, use a facilitator-provided writable copy in an approved organization. A fork is also suitable when organizational policy permits it.
+
+Do not request write access to this reference repository or use personal accounts and public forks to bypass organizational controls.
+
 ## Scenario
 
 An internal team uses a small browser application to view synthetic equipment readiness data. The baseline application shows:
