@@ -1,6 +1,6 @@
 # Equipment Readiness Board
 
-This is a synthetic teaching repository for GitHub and AI-assisted development workshops.
+This is a synthetic teaching repository for GitHub and AI-assisted development workshops. This workshop was created and is maintained by Thomas Johnson.
 
 ## Workshop use
 
