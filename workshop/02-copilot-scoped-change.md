@@ -4,7 +4,7 @@
 
 Use an approved GitHub Copilot experience to plan and implement the maintenance-due change without bypassing human review.
 
-Work in a facilitator-provided writable copy in an approved organization, or a fork only where organizational policy permits. Treat the public repository as a read-only reference.
+Clone this repository, or your fork of it, and work locally. This exercise does not require a push. If you want to publish your change for review, push a branch to your fork and open the pull request inside your fork.
 
 ## Prompt pattern
 
