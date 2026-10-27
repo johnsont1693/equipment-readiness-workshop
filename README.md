@@ -54,7 +54,9 @@ No third-party packages are required.
 | `tests/` | Node built-in tests |
 | `docs/` | Requirements and architecture |
 | `workshop/` | Participant exercises and review checklist |
-| `.github/` | Copilot instructions and pull-request template |
+| `.github/` | Copilot instructions, pull-request template, and the `test` workflow |
+
+Changes to `main` require a pull request with a passing `test` check.
 
 ## Safety
 
